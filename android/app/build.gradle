@@ -60,8 +60,11 @@ flutter {
 }
 
 dependencies {
-    // Zebra EMDK RFID Library
-    implementation files('libs/EMDKRFID-9.1.1.aar')
+    // Zebra RFID SDK - 自動的に libs/*.aar を読み込み
+    // ライブラリがない場合でもビルドエラーにならない
+    fileTree(dir: 'libs', include: ['*.aar']).each { File file ->
+        implementation files(file)
+    }
 
     // AndroidX dependencies
     implementation 'androidx.core:core-ktx:1.12.0'

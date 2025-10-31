@@ -4,7 +4,16 @@ import android.content.Context
 import android.util.Log
 import com.zebra.rfid.api3.*
 
-class RFIDReaderManager(private val context: Context) {
+/**
+ * Zebra RFID SDK を使用した実装
+ *
+ * このファイルを有効にするには：
+ * 1. Zebra RFID SDK (*.aar) を android/app/libs/ に配置
+ * 2. このファイルを RFIDReaderManager.kt にリネーム
+ * 3. flutter clean && flutter pub get
+ * 4. アプリをビルド・実行
+ */
+class RFIDReaderManager(private val context: Context) : RFIDReaderAdapter {
     private val TAG = "RFIDReaderManager"
 
     private var readers: Readers? = null
